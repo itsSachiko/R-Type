@@ -4,26 +4,47 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f; // Velocità di movimento del giocatore
-
+    public float speed = 5f; 
     private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Otteniamo il componente Rigidbody2D del giocatore
+        rb = GetComponent<Rigidbody2D>(); 
     }
 
     void Update()
     {
-        // Otteniamo l'input per il movimento orizzontale e verticale
+       
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
-        // Calcoliamo la velocità di movimento del giocatore
+  
         Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
 
-        // Applichiamo la velocità di movimento al rigidbody del giocatore
         rb.velocity = movement;
 
+        LimitScreen();
+
+    }
+
+    void LimitScreen()
+    {
+        if (transform.position.x > 2.5f ){ //limite dx
+            transform.position = new Vector3 (2.5f, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x < -2.5f) //limite sx
+        {
+            transform.position = new Vector3(-2.5f, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.y > 1.4f) //limite superiore
+        {
+            transform.position = new Vector3(transform.position.x, 1.4f, transform.position.z);
+        }
+
+        if (transform.position.y < -1.07f) //limite inferiore 
+        {
+            transform.position = new Vector3(transform.position.x, -1.07f, transform.position.z);
+        }
     }
 }
