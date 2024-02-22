@@ -17,8 +17,6 @@ public class Spawner : MonoBehaviour
         minPosY = minPosTransform.position.y;
         maxPosY = maxPosTransform.position.y;
 
-        StartCoroutine(SpawnTime());
-
     }
     void Update()
     {
@@ -26,21 +24,11 @@ public class Spawner : MonoBehaviour
 
         if (spawnTime >= spawnRate)
         {
-            Vector3 pos = new Vector3(7.65f, Random.Range(minPosY, maxPosY) , transform.position.z);
+            Vector3 pos = new Vector3(transform.position.x, Random.Range(minPosY, maxPosY) , transform.position.z);
 
             //Quaternion rotation = Quaternion.Euler(0, 0, 90);
             Instantiate(enemyToSpawn, pos, Quaternion.identity);
             spawnTime = 0;
         }
     }
-
-    
-    IEnumerator SpawnTime() 
-
-    {
-
-        yield return new WaitForSeconds(10);
-
-    }
-
 }

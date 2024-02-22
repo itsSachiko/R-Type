@@ -41,13 +41,13 @@ public class BackgroundComponent : MonoBehaviour
 
     private void MoveTile(Transform tile)
     {
-        tile.position = new Vector2(tile.position.x - Time.deltaTime * speed, tile.position.y);
-
         if (tile.position.x <= -limit)
         {
             float mostRightX = FindMostRightPosTile() + tileWidth; // aggiorna ogni volta il calcolo della nuova posizione x
             tile.position = new Vector2(mostRightX, tile.position.y);
         }
+
+        tile.position = new Vector2(tile.position.x - Time.deltaTime * speed, tile.position.y);
     }
 
     private float FindMostRightPosTile()

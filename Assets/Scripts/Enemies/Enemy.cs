@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     public float movementSpeed = 5f;
 
-    private bool canMove;
 
     void Update()
     {
@@ -17,7 +16,6 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Explode()
     {
-        canMove = false;
         //qui posso far partire l'animazione, disattivare il collider dell'enemy
         
         //qui posso aggiungere lo score al player
@@ -29,12 +27,19 @@ public class Enemy : MonoBehaviour
         yield return null;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Wall"))
         {
 
-            canMove = false;
+
+            StartCoroutine(Explode());
+
+        }
+
+        if (collision.transform.CompareTag("Bullet"))
+        {
+
 
             StartCoroutine(Explode());
 

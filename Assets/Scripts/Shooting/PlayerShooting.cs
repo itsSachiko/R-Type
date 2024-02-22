@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, -180));
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
