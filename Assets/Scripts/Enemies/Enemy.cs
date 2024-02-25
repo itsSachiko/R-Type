@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    private float movementSpeed;
+    private float enemyHP;
+    
+    GameManager gameManager;
 
-
+    private void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+        movementSpeed = gameManager.enemyList[0].movementSpeed;
+        enemyHP = gameManager.enemyList[0].maxHP;
+    }
     void Update()
     {
-
         transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+
     }
 
     IEnumerator Explode()
-    {
-        //qui posso far partire l'animazione, disattivare il collider dell'enemy
-        
-        //qui posso aggiungere lo score al player
-
-        //gm.IncrementScore(scoreOnDeath);
-
+    {   
         Destroy(gameObject);
 
         yield return null;
@@ -31,19 +32,18 @@ public class Enemy : MonoBehaviour
     {
         if (collision.transform.CompareTag("Wall"))
         {
-
-
             StartCoroutine(Explode());
-
         }
 
         if (collision.transform.CompareTag("Bullet"))
         {
-
-
-            StartCoroutine(Explode());
-
+            enemyHP -= 1;
+            if (enemyHP == 0)
+                StartCoroutine(Explode());
         }
+    }
+    void Healh()
+    {
 
 
     }

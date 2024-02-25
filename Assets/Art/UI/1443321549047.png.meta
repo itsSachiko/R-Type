@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6534480e390dd674ab191e8bc0bd7bdf
+guid: 9274c743fed30ae4fb8cee22248cffb7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,62 +121,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Mobile - DoDonPachi Unlimited - Bullets_0
-      rect:
-        serializedVersion: 2
-        x: 8671
-        y: 3008
-        width: 229
-        height: 131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 333e5ab060af47e45b444b3948b7dec8
-      internalID: 1816898124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mobile - DoDonPachi Unlimited - Bullets_1
-      rect:
-        serializedVersion: 2
-        x: 6565
-        y: 2798
-        width: 116
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71e44907a161e1947af28189e41553a9
-      internalID: -1783835300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 000425c09e8ac134d88f33aa6e6de21c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Mobile - DoDonPachi Unlimited - Bullets_0: 1816898124
-      Mobile - DoDonPachi Unlimited - Bullets_1: -1783835300
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
