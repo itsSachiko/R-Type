@@ -9,8 +9,11 @@ public class Enemy : MonoBehaviour
     
     GameManager gameManager;
 
+    UIComponent uiComponent;
+
     private void Start()
     {
+        uiComponent = FindAnyObjectByType<UIComponent>();
         gameManager = FindAnyObjectByType<GameManager>();
         movementSpeed = gameManager.enemyList[0].movementSpeed;
         enemyHP = gameManager.enemyList[0].maxHP;
@@ -18,7 +21,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
-
     }
 
     IEnumerator Explode()
@@ -37,14 +39,14 @@ public class Enemy : MonoBehaviour
 
         if (collision.transform.CompareTag("Bullet"))
         {
-            enemyHP -= 1;
+            enemyHP --;
             if (enemyHP == 0)
+            {
+                uiComponent.enemyKilledCount++;
                 StartCoroutine(Explode());
+                Debug.Log(uiComponent.enemyKilledCount);
+                uiComponent.ShowingStats();
+            }
         }
-    }
-    void Healh()
-    {
-
-
     }
 }

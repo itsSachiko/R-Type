@@ -305,7 +305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Player HP: 20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -111.6568, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Enemy Killed: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -631,22 +631,25 @@ MonoBehaviour:
   enemyList:
   - enemyType: Normal Enemy
     prefab: {fileID: 8462925035393837148, guid: 50522eb2cd3f33d47b674aea4a78abdf, type: 3}
-    spawnRate: 2
-    maxHP: 10
+    spawnRate: 5
+    maxHP: 5
     movementSpeed: 0.5
-    bulletSpeed: 5
+    bulletSpeed: 1
+    fireRate: 5
   - enemyType: Fast Enemy
     prefab: {fileID: 1211618541579875028, guid: d8ac40dc2c0f5a845b780e05bec7f123, type: 3}
     spawnRate: 2
-    maxHP: 10
+    maxHP: 5
     movementSpeed: 10
     bulletSpeed: 2
+    fireRate: 0
   - enemyType: Tank Enemy
     prefab: {fileID: 0}
     spawnRate: 2
     maxHP: 20
     movementSpeed: 2
     bulletSpeed: 0.5
+    fireRate: 0
 --- !u!4 &452125498
 Transform:
   m_ObjectHideFlags: 0
@@ -978,7 +981,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6fc934c28f4a61548a11c8c0767f4834, type: 3}
   m_Color: {r: 0.4111997, g: 0.42011234, b: 0.78113204, a: 1}
   m_FlipX: 0
@@ -1062,7 +1065,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6fc934c28f4a61548a11c8c0767f4834, type: 3}
   m_Color: {r: 0.4111997, g: 0.42011234, b: 0.78113204, a: 1}
   m_FlipX: 0
@@ -1725,6 +1728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHP: 20
+  uiComponent: {fileID: 1146509853}
 --- !u!1 &1118428173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1913,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winPanel: {fileID: 966673533}
   losePanel: {fileID: 1789711654}
+  playerHP: 0
+  enemyKilledCount: 0
+  showingHealth: {fileID: 301724154}
+  enemyKilled: {fileID: 407823579}
+  health: {fileID: 1046244505}
 --- !u!4 &1146509854
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,7 +2110,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146509853}
         m_TargetAssemblyTypeName: UIComponent, Assembly-CSharp
-        m_MethodName: tryAgain
+        m_MethodName: TryAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2404,7 +2413,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6fc934c28f4a61548a11c8c0767f4834, type: 3}
   m_Color: {r: 0.4111997, g: 0.42011234, b: 0.78113204, a: 1}
   m_FlipX: 0
@@ -2572,7 +2581,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6fc934c28f4a61548a11c8c0767f4834, type: 3}
   m_Color: {r: 0.4111997, g: 0.42011234, b: 0.78113204, a: 1}
   m_FlipX: 0
@@ -2844,7 +2853,7 @@ Transform:
   m_GameObject: {fileID: 1809386081}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.31, y: -1.15, z: 0}
+  m_LocalPosition: {x: -0.15, y: -2, z: 0}
   m_LocalScale: {x: 5.7220573, y: 6.0461106, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2934,7 +2943,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146509853}
         m_TargetAssemblyTypeName: UIComponent, Assembly-CSharp
-        m_MethodName: tryAgain
+        m_MethodName: TryAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

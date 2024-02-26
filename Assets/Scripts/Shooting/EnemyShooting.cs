@@ -5,9 +5,17 @@ public class EnemyShooting : MonoBehaviour
     public GameObject bulletPrefab; 
     public Transform firePoint; 
     public float bulletSpeed = 3f;
-    public float fireRate = 1f; 
-    private float spawnTime; 
+    public float fireRate; 
+    private float spawnTime;
 
+    GameManager gameManager;
+
+
+    private void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+        fireRate = gameManager.enemyList[0].fireRate;
+    }
     void Update()
     {
         spawnTime += Time.deltaTime;

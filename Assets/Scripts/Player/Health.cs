@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Health : MonoBehaviour
 {
     public int playerHP;
 
     GameManager gameManager;
+
+    public UIComponent uiComponent; 
 
 
     private void Start()
@@ -26,9 +29,10 @@ public class Health : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bullet"))
         {
-            playerHP -= 1;
-            Debug.Log(playerHP);
-            
+            playerHP --;
+            uiComponent.playerHP = playerHP;
+            uiComponent.ShowingStats();
+
             if (playerHP <= 0) 
             {
                 gameManager.lose.Invoke();

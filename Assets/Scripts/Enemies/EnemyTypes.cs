@@ -10,7 +10,8 @@ public class EnemyTypes
     [SerializeField] public float spawnRate;
     [SerializeField] public int maxHP;
     [SerializeField] public float movementSpeed;
-    [SerializeField] public float bulletSpeed; 
+    [SerializeField] public float bulletSpeed;
+    [SerializeField] public float fireRate;
     //[SerializeField] public GameObject ;
 
 }
