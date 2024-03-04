@@ -6,25 +6,36 @@ public class Enemy : MonoBehaviour
 {
     private float movementSpeed;
     private float enemyHP;
+
+    public GameManager gameManager;
     
-    GameManager gameManager;
+    Spawner spawner;
 
     UIComponent uiComponent;
 
-    private void Start()
+     void Start()
     {
         uiComponent = FindAnyObjectByType<UIComponent>();
         gameManager = FindAnyObjectByType<GameManager>();
-        movementSpeed = gameManager.enemyList[0].movementSpeed;
-        enemyHP = gameManager.enemyList[0].maxHP;
+        spawner = FindAnyObjectByType<Spawner>();
+
+
+
     }
     void Update()
     {
+        ChangingStats(gameManager.enemyList[spawner.enemyIndex]);
         transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
     }
 
+    public void ChangingStats(EnemyTypes enemyTypes)
+    {
+        movementSpeed = enemyTypes.movementSpeed;
+        enemyHP =  enemyTypes.maxHP; 
+    }
+
     IEnumerator Explode()
-    {   
+    {
         Destroy(gameObject);
 
         yield return null;
@@ -37,14 +48,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(Explode());
         }
 
-        if (collision.transform.CompareTag("Bullet"))
+        if (collision.transform.CompareTag("Player Bullets"))
         {
-            enemyHP --;
-            if (enemyHP == 0)
+            enemyHP--;
+            if (enemyHP <= 0)
             {
+                gameManager.ChangeEnemy();
                 uiComponent.enemyKilledCount++;
                 StartCoroutine(Explode());
-                Debug.Log(uiComponent.enemyKilledCount);
                 uiComponent.ShowingStats();
             }
         }

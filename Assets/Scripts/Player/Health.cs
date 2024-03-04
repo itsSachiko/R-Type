@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bullet"))
         {
+            
             playerHP --;
             uiComponent.playerHP = playerHP;
             uiComponent.ShowingStats();

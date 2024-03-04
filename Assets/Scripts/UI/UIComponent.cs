@@ -16,8 +16,8 @@ public class UIComponent : MonoBehaviour
     public TMP_Text enemyKilled;
 
     public Health health;
-   
-   
+
+
     void Start()
     {
         winPanel.SetActive(false);
@@ -29,9 +29,13 @@ public class UIComponent : MonoBehaviour
     public void TryAgain()
     {
         SceneManager.LoadScene(0);
-        Debug.Log("hi");
     }
 
+    public void OnWin()
+    {
+        Time.timeScale = 0f;
+        losePanel.SetActive(true);
+    }
     public void OnLose()
     {
         Time.timeScale = 0f;

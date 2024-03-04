@@ -42,9 +42,9 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 0.94f, transform.position.z);
         }
 
-        if (transform.position.y < -1.38f) //limite inferiore 
+        if (transform.position.y < -1.29f) //limite inferiore 
         {
-            transform.position = new Vector3(transform.position.x, -1.38f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -1.29f, transform.position.z);
         }
     }
 }
