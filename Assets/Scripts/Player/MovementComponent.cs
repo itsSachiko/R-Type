@@ -28,13 +28,14 @@ public class PlayerMovement : MonoBehaviour
 
     void LimitScreen()
     {
-        if (transform.position.x > 2.5f ){ //limite dx
-            transform.position = new Vector3 (2.5f, transform.position.y, transform.position.z);
+        if (transform.position.x > 2.362f)
+        { //limite dx
+            transform.position = new Vector3 (-2.362f, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.x < -2.5f) //limite sx
+        if (transform.position.x < -2.362f) //limite sx
         {
-            transform.position = new Vector3(-2.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-2.362f, transform.position.y, transform.position.z);
         }
 
         if (transform.position.y > 0.94f) //limite superiore

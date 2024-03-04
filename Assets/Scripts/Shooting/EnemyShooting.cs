@@ -10,11 +10,13 @@ public class EnemyShooting : MonoBehaviour
 
     GameManager gameManager;
 
+    Spawner spawner;
 
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
-        fireRate = gameManager.enemyList[0].fireRate;
+        spawner = FindAnyObjectByType<Spawner>();
+        ChangingStats(gameManager.enemyList[spawner.enemyIndex]);
     }
     void Update()
     {
@@ -32,7 +34,13 @@ public class EnemyShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = -transform.right * bulletSpeed; 
+        rb.velocity = transform.up * bulletSpeed; 
+    }
+    public void ChangingStats(EnemyTypes enemyTypes)
+    {
+        fireRate = enemyTypes.fireRate;
+        bulletSpeed = enemyTypes.bulletSpeed;
+        fireRate = enemyTypes.bulletSpeed;
     }
 
 }

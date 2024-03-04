@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log("spawnrate " + spawnRate);
         SpawnSystem(gameManager.enemyList[enemyIndex]); 
     }
 
@@ -33,7 +34,7 @@ public class Spawner : MonoBehaviour
         if (spawnTime >= spawnRate)
         {
             Vector3 pos = new Vector3(transform.position.x, Random.Range(minPosY, maxPosY), transform.position.z);
-            Instantiate(gameManager.enemyList[enemyIndex].prefab, pos, Quaternion.identity);
+            Instantiate(gameManager.enemyList[enemyIndex].prefab, pos, gameManager.enemyList[enemyIndex].prefab.rotation);
             spawnTime = 0;
         }
     }

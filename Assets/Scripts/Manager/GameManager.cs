@@ -23,23 +23,19 @@ public class GameManager : MonoBehaviour
 
     public void ChangeEnemy()
     {
-        if (uiComponent.enemyKilledCount <= 1)
+        if (uiComponent.enemyKilledCount <= 10)
         {
             spawner.enemyIndex = 0;
         }
 
-        else if (uiComponent.enemyKilledCount > 1 && uiComponent.enemyKilledCount <= 2)
+        else if (uiComponent.enemyKilledCount > 10 && uiComponent.enemyKilledCount <= 20)
         {
             spawner.enemyIndex = 1;
         }
 
-        else if (uiComponent.enemyKilledCount > 2 && uiComponent.enemyKilledCount <= 3)
+        else if (uiComponent.enemyKilledCount > 20 && uiComponent.enemyKilledCount <= 30)
         {
             spawner.enemyIndex = 2;
-        }
-        else if (uiComponent.enemyKilledCount == 3)
-        {
-            win.Invoke();
         }
     }
 }

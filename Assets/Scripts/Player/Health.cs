@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 
     public UIComponent uiComponent; 
 
-
+    
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();

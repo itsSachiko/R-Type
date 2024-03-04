@@ -17,24 +17,33 @@ public class UIComponent : MonoBehaviour
 
     public Health health;
 
+    GameManager manager;
+
 
     void Start()
     {
         winPanel.SetActive(false);
         losePanel.SetActive(false);
+        manager = FindAnyObjectByType<GameManager>();
 
         playerHP = health.playerHP;
     }
 
-    public void TryAgain()
+    private void Update()
     {
-        SceneManager.LoadScene(0);
+        if (enemyKilledCount == 30)
+        {
+            manager.win.Invoke();
+        }
     }
-
+    //public void TryAgain()
+    //{
+    //    SceneManager.LoadScene(0);
+    //} 
     public void OnWin()
     {
         Time.timeScale = 0f;
-        losePanel.SetActive(true);
+        winPanel.SetActive(true);
     }
     public void OnLose()
     {
@@ -48,7 +57,4 @@ public class UIComponent : MonoBehaviour
         enemyKilled.text = ("Enemy Killed: ") + enemyKilledCount.ToString();
 
     }
-
-
-
 }

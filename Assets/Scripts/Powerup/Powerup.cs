@@ -9,9 +9,9 @@ public class Powerup : MonoBehaviour
     public float newMovementSpeed = 5f;
     private float originalSpeed;
 
-    private PlayerMovement playerMovement;
+    PlayerMovement playerMovement;
 
-    private SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     private void Start()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
@@ -46,8 +46,6 @@ public class Powerup : MonoBehaviour
 
     IEnumerator ActivatePowerup()
     {
-        
-
         playerMovement.speed = newMovementSpeed;
         Debug.Log("original: " + originalSpeed + "player.speed " + playerMovement.speed);
 
@@ -55,9 +53,9 @@ public class Powerup : MonoBehaviour
         yield return new WaitForSeconds(timer);
 
         playerMovement.speed = originalSpeed;
-        Debug.Log("original: " + originalSpeed+ "player.speed " + playerMovement.speed);
-       
+        Debug.Log("last step: " + originalSpeed+ "player.speed " + playerMovement.speed);
         
+        //l'ho fatto funzionare poi un giorno a caso ha deciso di rompersi il timer idk why
     }
 
     void Hide()

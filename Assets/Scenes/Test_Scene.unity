@@ -529,7 +529,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   win:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1146509853}
+        m_TargetAssemblyTypeName: UIComponent, Assembly-CSharp
+        m_MethodName: OnWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lose:
     m_PersistentCalls:
       m_Calls:
@@ -552,21 +564,21 @@ MonoBehaviour:
     maxHP: 5
     movementSpeed: 0.5
     bulletSpeed: 1
-    fireRate: 5
+    fireRate: 3
   - enemyType: Fast Enemy
     prefab: {fileID: 852959429293597735, guid: d0921fd7af18b134bbf7313a1b71704e, type: 3}
     spawnRate: 2
     maxHP: 5
-    movementSpeed: 10
-    bulletSpeed: 2
-    fireRate: 0
+    movementSpeed: 3
+    bulletSpeed: 4
+    fireRate: 3
   - enemyType: Tank Enemy
     prefab: {fileID: 705607056283955451, guid: d57073b1a221b0046a30e5a42c501ea7, type: 3}
     spawnRate: 2
-    maxHP: 20
-    movementSpeed: 2
-    bulletSpeed: 0.5
-    fireRate: 0
+    maxHP: 10
+    movementSpeed: 0.5
+    bulletSpeed: 1
+    fireRate: 3
 --- !u!4 &452125498
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -816, y: 0}
+  m_AnchoredPosition: {x: -816, y: -18}
   m_SizeDelta: {x: 280.5566, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &913644804
@@ -1361,7 +1373,7 @@ Transform:
   m_GameObject: {fileID: 1046244498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.4072, y: -0.575, z: 0}
+  m_LocalPosition: {x: -2.362, y: 0.726, z: 0}
   m_LocalScale: {x: 0.3819, y: 0.3819, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1550,7 +1562,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1118428174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,7 +2217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 799, y: 3.718}
+  m_AnchoredPosition: {x: 799, y: -16}
   m_SizeDelta: {x: 312.7793, y: 42.564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1317866880
@@ -2914,12 +2926,12 @@ GameObject:
   - component: {fileID: 1806190181}
   - component: {fileID: 1806190180}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Try again
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1806190179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2936,7 +2948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -908, y: -484}
+  m_AnchoredPosition: {x: -816, y: -366}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806190180
@@ -3231,12 +3243,12 @@ GameObject:
   - component: {fileID: 2063688091}
   - component: {fileID: 2063688090}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Try Again
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2063688089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3253,7 +3265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -908, y: -484}
+  m_AnchoredPosition: {x: -816, y: -366}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063688090
